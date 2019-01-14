@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row fixed-height">
+        <div class="col-md-6 offset-md-4">
+            <div *ngFor="let tweet of tweets">
+                <div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{tweet?.user?.name}} - {{tweet?.place?.country_code }}</h5>
+                            <p class="card-text">{{tweet?.text | slice : 0 : 100}} {{tweet?.extended_tweet?.display_text_range[1] > 100 ? '...' : ''}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <button (click)="toggleSubscription()">{{ !isSubscribed ? 'Subscribe' : 'Unsubscribe'}}</button>
+</div>
